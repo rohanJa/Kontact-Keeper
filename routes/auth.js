@@ -37,7 +37,7 @@ router.post('/',[
     async (req, res) => {
 
         const errors = validationResult(req);
-        if(!errors.isEmpty()) {
+        if(!errors.isEmpty()) {             //if error array is empty
             return res.status(400).json({ errors: errors.array() });
         }
 
@@ -51,7 +51,7 @@ router.post('/',[
 
             const isMatch = await bcrypt.compare(password, user.password);
 
-            if(!isMatch) {
+            if(!isMatch) {              //if the saved password and entered password are not same using bcrypt
                 return res.status(400).json({ msg: 'Invalid Credentials ' });
             }
 
