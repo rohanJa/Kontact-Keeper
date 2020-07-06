@@ -7,10 +7,10 @@ const ContactItem = ({ contact }) => {
     
     const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
-    const { id, name, email, phone, type } = contact;
+    const { _id, name, email, phone, type } = contact;
     
     const onDelete = () => {
-        deleteContact(id);
+        deleteContact(_id);
         clearCurrent();
     }
 
@@ -25,7 +25,7 @@ const ContactItem = ({ contact }) => {
                         (type === 'professional' ? 'badge-success': 'badge-primary')
                     }
                 >
-                    {type.charAt(0).toUpperCase() + type.slice(1)}  {/* For first char to be uppercase */}
+                    {type.charAt(0).toUpperCase() + type.slice(1)}  {/* slice method will contain the from char at index 1 to end of the string .For first char to be uppercase */}
                 </span>
             </h3>
             <ul className="list">
